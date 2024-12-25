@@ -148,7 +148,7 @@ ol {
       rgba(46, 47, 66, 0.7),
       rgba(46, 47, 66, 0.7)
     ),
-    url(../images/office.jpg);
+    url(../images/header/background.jpg);
   max-width: 1440px;
   /*для визначення ширини секції*/
   height: 600px;
@@ -430,10 +430,6 @@ ol {
 
 .portfolio-items:hover .portfolio-modal {
   transform: translateY(0%);
-  /* Показати текст при наведенні */
-  /*При ховері на елемент списку змінюється стиль transform для параграфа,
-            що знаходиться в контейнері з картинкою. Нове значення якого становить 
-            transform: translateY(0*/
 }
 
 .portfolio-items:hover {
