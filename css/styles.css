@@ -1,30 +1,32 @@
-h1,
-h2,
-h3,
-h4,
-h5,
-h6,
-p {
-  margin: 0;
-}
-
-ul,
-ol {
-  margin: 0;
-  padding-left: 0;
+body {
+  font-family: "Raleway", sans-serif;
+  font-family: "Roboto", sans-serif;
+  color: #434455;
+  background-color: #fff;
 }
 
 img {
   display: block;
-  max-width: 100%;
-  height: auto;
 }
 
-body {
-  font-family: "Roboto", sans-serif;
-  background-color: #ffffff;
-  color: #434455;
-  line-height: 1.5;
+a {
+  text-decoration: none;
+}
+
+.header-container {
+  display: flex;
+  align-items: center;
+}
+
+.container {
+  max-width: 1158px;
+  padding-left: 15px;
+  padding-right: 15px;
+  margin: 0 auto;
+  align-items: baseline;
+  /* що встановлює вирівнювання елементів у 
+    поперечному напрямку вздовж головної осі
+     контейнера відносно базової лінії тексту першого рядка кожного елемента*/
 }
 
 .visually-hidden {
@@ -40,285 +42,342 @@ body {
   overflow: hidden;
 }
 
-.section {
-  padding: 120px 0;
+ul,
+ol {
+  list-style: none;
 }
 
+/*header*/
 .page-header {
   border-bottom: 1px solid #e7e9fc;
+  box-shadow: 0 1px 6px 0 rgba(46, 47, 66, 0.08),
+    0 1px 1px 0 rgba(46, 47, 66, 0.16), 0 2px 1px 0 rgba(46, 47, 66, 0.08);
 }
 
-.page-header .container {
+.header-nav {
   display: flex;
   align-items: center;
+  padding: 24px 0;
 }
 
-.container {
-  max-width: 1158px;
-  padding: 0 15px;
-  margin: 0 auto;
-}
-
-.page-nav {
-  display: flex;
-  align-items: center;
-}
-
-.header-logo {
-  padding-top: 24px;
-  padding-bottom: 24px;
-  margin-right: 76px;
-}
-
-.header-logo {
+.logo {
   font-family: "Raleway", sans-serif;
   font-weight: 700;
   font-size: 18px;
-  text-transform: uppercase;
-  color: #4d5ae5;
   line-height: 1.17;
   letter-spacing: 0.03em;
   text-transform: uppercase;
+  color: #4d5ae5;
+  margin: 76px;
+  /*motzna k logo-header*/
 }
 
-.header-menu {
-  display: flex;
-  align-items: center;
-  gap: 40px;
-}
-
-.nav-web {
+.studio-color {
   color: #2e2f42;
 }
 
-a {
-  text-decoration: none;
+.nav-list {
+  display: flex;
+  gap: 40px;
 }
 
-ul {
-  list-style-type: none;
+.nav-item {
+  padding: 24px 0;
 }
 
 .nav-link {
-  padding: 24px 0;
-  display: block;
   font-weight: 500;
   font-size: 16px;
   line-height: 1.5;
   letter-spacing: 0.02em;
   color: #2e2f42;
+  padding: 24px 0;
+  transition: color 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
-.nav-link:focus {
+.nav-link.current {
+  position: relative;
   color: #404bbf;
 }
 
-.nav-link:hover {
+.nav-link.current:after {
+  content: "";
+  /*aby nam fungoval :before tak musime zadat todle*/
+  position: absolute;
+  left: 0;
+  bottom: -1px;
+  background-color: #404bbf;
+  border-radius: 2px;
+  width: 100%;
+  height: 4px;
+}
+
+.nav-link:hover,
+.nav-link:focus,
+.contacts-link:hover,
+.contacts-link:focus .nav-link.current {
   color: #404bbf;
 }
 
-.nav-link:active {
-  color: #404bbf;
-}
-
-.page-address {
+.contacts {
   font-style: normal;
-  margin-left: auto;
 }
 
-.page-addressmp {
+.contacts-list {
   display: flex;
   gap: 40px;
-  align-items: center;
 }
 
-.address-link {
-  display: block;
-  padding: 24px 0;
+.contacts-items {
+}
+
+.contacts-link {
+  font-weight: 400;
   font-size: 16px;
   line-height: 1.5;
   letter-spacing: 0.02em;
   color: #434455;
+  transition: color 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
-.address-link:focus {
-  color: #404bbf;
-}
-
-.address-link:hover {
-  color: #404bbf;
-}
-
-.section-first {
+/*section1*/
+.solutions {
   background-color: #2e2f42;
-  color: #fff;
+  /*для реалізації фонового зображення з затемненням (багатошаровий фон з градієнтом)*/
+  background-image: linear-gradient(
+      rgba(46, 47, 66, 0.7),
+      rgba(46, 47, 66, 0.7)
+    ),
+    url(../images/office.jpg);
+  max-width: 1440px;
+  /*для визначення ширини секції*/
+  height: 600px;
+  background-repeat: no-repeat;
+  /*для уникнення повторення фонового зображення відносно його власної ширини та висоти*/
+  background-position: center;
+  background-size: cover;
+  /*для позиціонування зображення на всю площу фону елемента*/
   padding: 188px 0;
+  /*можна використовувати аналог padding: 188px 0 188px або padding-top: 188px; та padding-bottom: 188px;*/
 }
 
-h1 {
-  font-weight: 700;
+.strategy-icon {
+  display: flex;
+  /*для подальшої можливості зміни розташування елемента*/
+  align-items: center;
+  /*для вирівнювання іконки по вертикалі*/
+  justify-content: center;
+  /* для вирівнювання іконки по горизонталі*/
+  height: 112px;
+  /* для визначення висоти блоку*/
+  background-color: #f4f4fd;
+  /*  для визначення кольору фону блока*/
+  border-radius: 4px;
+  /*для визначення радіусу закруглення кутів блока*/
+  border: 1px solid #8e8f99;
+  /* для визначення стилю обводки по периметру контейнера*/
+  margin-bottom: 8px;
+  /*для визначення відступу між блоком та заголовком*/
+}
+
+.solutions-title {
   font-size: 56px;
-  /* line-height: 60px; */
   line-height: 1.07;
   letter-spacing: 0.02em;
   text-align: center;
-}
-
-.section-text {
+  color: #fff;
   max-width: 496px;
-  margin: auto;
 }
 
-.button-order {
-  font-family: "Roboto", sans-serif;
+.solutions-button {
+  background: #4d5ae5;
+  font-weight: 500;
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 1.5;
+  letter-spacing: 0.04em;
+  cursor: pointer;
+  color: #ffffff;
   display: block;
   min-width: 169px;
   height: 56px;
   border: none;
   border-radius: 4px;
-  margin-top: 48px;
-  margin-right: auto;
-  margin-left: auto;
-  font-weight: 500;
-  font-size: 16px;
-  color: #fff;
-  /* line-height: 24px; */
-  line-height: 1.5;
-  letter-spacing: 0.04em;
-  background-color: #4d5ae5;
-  cursor: pointer;
+  transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
+  /*для плавної зміни кольору фону елемента*/
 }
 
-.button-order .container {
-  display: flex;
-  align-items: flex-start;
-  justify-content: flex-start;
-  flex-direction: row;
-  gap: 10px;
+.solutions-button:hover,
+.solutions-button:focus {
+  background-color:
+        /* #404bbf*/ #4d5ae5;
 }
 
-.button-order:focus {
-  background-color: #404bbf;
-}
-
-.button-order:hover {
-  background-color: #404bbf;
-}
-
-.page-section-two {
+/*section2*/
+.stpudite {
+  background-color: #ffffff;
   padding: 120px 0;
 }
 
-.features-item {
+.stpudite-list {
+  display: flex;
+  gap: 24px;
+  /*можна використовувати margin-right: 24px для тега li у класі, для останього
+     li використовуємо margin-right: 0 для обнулення відступів*/
+  padding-left: 0;
+  margin: 0;
+}
+
+.stpudite-items {
   width: calc((100% - 72px) / 4);
 }
 
-.features-htxt {
+.stpudite-subtitle {
+  font-weight: 500;
+  font-size: 20px;
+  line-height: 1.2;
+  letter-spacing: 0.02em;
+  color: #2e2f42;
   margin-bottom: 8px;
 }
 
-.features-ptxt {
-  font-weight: 400;
-  font-size: 16px;
+.stpudite-text {
   line-height: 1.5;
   letter-spacing: 0.02em;
-  color: #434455;
 }
 
-ul.features-text {
-  display: flex;
-  align-items: center;
-  gap: 24px;
-}
-
-.page-section-three {
+/*section3*/
+.team {
   background-color: #f4f4fd;
   padding: 120px 0;
 }
 
-.section-team {
-  font-weight: 700;
+.team-title {
   font-size: 36px;
   line-height: 1.11;
   letter-spacing: 0.02em;
   text-align: center;
-  color: #2e2f42;
   text-transform: capitalize;
+  color: #2e2f42;
+  background-color: #ffffff;
+  /*mozna spatne*/
   margin-bottom: 72px;
 }
 
-.third-section-item-description {
-  padding: 32px 0;
-}
-
-.third-section-item-description {
-  text-align: center;
-}
-
-h3.third-section-item-header {
-  margin-bottom: 8px;
-}
-
-ul.page-text-bord {
+.team-list {
+  background-color: #ffffff;
   display: flex;
-  align-items: center;
   gap: 24px;
+  padding-left: 0;
+  margin: 0;
 }
 
-.section-threeli {
+.team-items {
+  background-color: #ffffff;
   width: calc((100% - 72px) / 4);
+  box-shadow: 0px 1px 6px rgba(46, 47, 66, 0.08),
+    0px 1px 1px rgba(46, 47, 66, 0.16), 0px 2px 1px rgba(46, 47, 66, 0.08);
   border-radius: 0px 0px 4px 4px;
-  background: #fff;
-  box-shadow: 0 2px 1px 0 rgba(46, 47, 66, 0.08),
-    0 1px 1px 0 rgba(46, 47, 66, 0.16), 0 1px 6px 0 rgba(46, 47, 66, 0.08);
 }
 
-.txt-icon {
+/*Для першого елемента списку команди в класі заданий стиль:.team-items:first-child*/
+.team-items:first-child {
+}
+
+.team-social {
+  display: flex;
+  /*для розміщення елементів списку по горизонталі в рядок*/
+  justify-content: center;
+  /*для вирівнювання елементів по горизонталі */
+  gap: 24px;
+  /*для визначення розмірів відступів між елементами списку*/
+  padding: 0;
+  /* Вимкнення внутрішніх відступів */
+  margin: 0;
+  /* Вимкнення зовнішніх відступів */
+  list-style-type: none;
+  /* Вимкнення маркерів списку */
+}
+
+.team-social-items {
+  width: 40px;
+  height: 40px;
+}
+
+.team-social-link {
+  width: 100%;
+  height: 100%;
+  /*що встановлює висоту елемента на 100% висоти батьківського*/
+  background-color: #4d5ae5;
+  border-radius: 50%;
+  display: flex;
+  /*для подальшої можливості зміни розташування дочірнього елемента*/
+  align-items: center;
+  /*для вирівнювання іконки по вертикалі*/
+  justify-content: center;
+  /*для вирівнювання іконки по горизонталі*/
+  transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.team-social-link:hover,
+.team-social-link:focus {
+  background-color: #404bbf;
+}
+
+.social-icon {
+  fill: #f4f4fd;
+}
+
+.team-subtitle {
   font-weight: 500;
   font-size: 20px;
   line-height: 1.2;
   letter-spacing: 0.02em;
-  text-align: center;
   color: #2e2f42;
+  width: calc((100% - 72px) / 4);
+  text-align: center;
   margin-bottom: 8px;
 }
 
-.pxp-icon {
-  font-weight: 400;
+.team-text {
   font-size: 16px;
   line-height: 1.5;
   letter-spacing: 0.02em;
   text-align: center;
-  color: #434455;
 }
 
-.last-section {
-  padding: 120px 0;
+.team-container {
+  padding: 32px 0;
+  border-radius: 0px 0px 4px 4px;
 }
 
-.text-portfolio {
-  font-weight: 700;
+/*4secti9on*/
+.portfolio {
+  background-color: #ffffff;
+  padding: 120px 0 120px 0;
+}
+
+.portfolio-title {
   font-size: 36px;
-  /* line-height: 40px; */
   line-height: 1.11;
   letter-spacing: 0.02em;
   text-align: center;
+  text-transform: capitalize;
   color: #2e2f42;
   margin-bottom: 72px;
-}
-
-.page-txt-next {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 24px;
-  row-gap: 48px;
-}
-
-.page-txt-next-item {
   width: calc((100% - 48px) / 3);
 }
 
-.sec-main-txt {
+.portfolio-list {
+  display: flex;
+  flex-wrap: wrap;
+  column-gap: 24px;
+  row-gap: 48px;
+  padding-left: 0;
+  margin: 0;
+}
+
+.portfolio-subtitle {
   font-weight: 500;
   font-size: 20px;
   line-height: 1.2;
@@ -327,51 +386,155 @@ ul.page-text-bord {
   margin-bottom: 8px;
 }
 
-.main-txt {
-  font-weight: 400;
+.portfolio-text {
   font-size: 16px;
   line-height: 1.5;
   letter-spacing: 0.02em;
   color: #434455;
+  /* padding: 40px 32px;*/
 }
 
-.forth-section-wrap-text {
+.portfolio-modal {
+  font-size: 16px;
+  /* Визначення розміру шрифту */
+  line-height: 1.5;
+  /* Простір між рядками */
+  letter-spacing: 0.02em;
+  /* Відстань між літерами */
+  position: absolute;
+  /* Позиціонування відносно батьківського елемента */
+  color: #f4f4fd;
+  /* Колір тексту */
+  top: 0;
+  /* Зміщення до верхньої межі контейнера */
+  background-color: #4d5ae5;
+  /* Фоновий колір */
+  transform: translateY(100%);
+  /* Зміщення елемента вздовж осі Y */
+  transition: transform 250ms cubic-bezier(0.4, 0, 0.2, 1);
+  /* Анімація переходу */
+  padding: 40px 32px;
+  /* Внутрішні відступи */
+  height: 100%;
+  /* Висота 100% від батьківського контейнера */
+  width: 100%;
+  /* Ширина 100% від батьківського контейнера */
+  margin-top: 0;
+  margin-bottom: 0;
+}
+
+.portfolio-items {
+  width: calc((100% - 48px) / 3);
+  transition: box-shadow 250ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.portfolio-items:hover .portfolio-modal {
+  transform: translateY(0%);
+  /* Показати текст при наведенні */
+  /*При ховері на елемент списку змінюється стиль transform для параграфа,
+            що знаходиться в контейнері з картинкою. Нове значення якого становить 
+            transform: translateY(0*/
+}
+
+.portfolio-items:hover {
+  box-shadow: 0px 1px 6px rgba(46, 47, 66, 0.08),
+    0px 1px 1px rgba(46, 47, 66, 0.16), 0px 2px 1px rgba(46, 47, 66, 0.08);
+}
+
+.portfolio-box {
+  position: relative;
+  overflow: hidden;
+}
+
+.portfolio-container {
   padding: 32px 16px;
   border: 1px solid #e7e9fc;
   border-top: none;
 }
 
-.footer-logo {
+/*footer*/
+.footer {
+  background-color: #2e2f42;
+  padding: 100px 0;
+}
+
+.footer-link {
   font-family: "Raleway", sans-serif;
   font-weight: 700;
   font-size: 18px;
-  line-height: 1.16667;
+  line-height: 1.17;
   letter-spacing: 0.03em;
   text-transform: uppercase;
   color: #4d5ae5;
-  line-height: 1.17;
-}
-
-.footer-logo {
   display: inline-block;
   margin-bottom: 16px;
 }
 
-.nav-web-footer {
-  color: #f4f4fd;
-}
-
-.footer-box {
-  background: #2e2f42;
-  padding: 100px 0;
-}
-
-.main-text-footer {
-  display: block;
-  max-width: 264px;
-  font-weight: 400;
-  font-size: 16px;
+.footer-text {
   line-height: 1.5;
   letter-spacing: 0.02em;
   color: #f4f4fd;
+  max-width: 264px;
+  margin-bottom: 16px;
+}
+
+.footer-color {
+  color: #f4f4fd;
+}
+
+.footer-social-text {
+  font-weight: 500;
+  /* Жирність шрифту */
+  font-size: 16px;
+  /* Розмір тексту */
+  line-height: 1.5;
+  /* Простір між рядками */
+  letter-spacing: 0.02em;
+  /* Відстань між літерами */
+  color: #ffffff;
+  /* Колір тексту */
+  margin-bottom: 16px;
+  /* Відступ знизу */
+  margin-top: 0;
+}
+
+.footer-social-list {
+  display: flex;
+  gap: 16px;
+}
+
+.footer-social-items {
+  width: 40px;
+  height: 40px;
+}
+
+.footer-social-link {
+  width: 100%;
+  height: 100%;
+  background-color: #4d5ae5;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.footer-social-link:hover {
+  background-color: #31d0aa;
+}
+
+.footer-social-link:focus {
+  background-color: #31d0aa;
+}
+
+.footer-social-icons {
+  fill: #f4f4fd;
+}
+
+.footer-logo-link {
+  margin-right: 120px;
+}
+
+.footer-container {
+  display: flex;
 }
